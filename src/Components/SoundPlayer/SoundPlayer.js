@@ -7,6 +7,7 @@ import * as Styles from './SoundPlayerStyles'
 
 function SoundPlayer({ tracks }) {
   const [loading, setLoading] = useState(false)
+  const [userPlayedTrack, setUserPlayedTrack] = useState(false)
   const [playing, setPlaying] = useState(false)
   const [autoPlay, setAutoPlay] = useState(false)
   const [actualTrackIndex, setActualTrackIndex] = useState(0)
@@ -41,6 +42,7 @@ function SoundPlayer({ tracks }) {
   }, [tracks.length, actualTrackIndex])
 
   const handlePlayPauseProxy = useCallback(() => {
+    setUserPlayedTrack(true)
     if (loading) return
 
     if (audioElm.current.paused) {
@@ -126,7 +128,7 @@ function SoundPlayer({ tracks }) {
           </Styles.Button>
         </Styles.Controls>
       </Styles.Wrapper>
-      <Styles.Info show={playing || loading}>
+      <Styles.Info show={playing || (loading && userPlayedTrack)}>
         <Styles.Author>{actualTrack.album}</Styles.Author>
         <Styles.Name>{actualTrack.name}</Styles.Name>
         <Styles.DurationInfo>
