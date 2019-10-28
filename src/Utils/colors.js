@@ -1,0 +1,8 @@
+export const white = 'white'
+export const cornflowerBlue = '#6195ED'
+export const azureRadiance = '#04a1fb'
+export const astronautBlue = '#003f63'
+export const lightgray = 'lightgray'
+export const spunPearl = '#acaebd'
+export const mineShaft = '#212121'
+export const doveGray = '#656565'

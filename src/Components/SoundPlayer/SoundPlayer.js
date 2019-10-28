@@ -52,7 +52,12 @@ function SoundPlayer({ tracks }) {
     }
   }, [loading])
 
-  const updateTrackTime = useCallback(time => {
+  const updateTrackTime = useCallback(newTime => {
+    const time = newTime.raw
+    setCurrentTime({
+      raw: time,
+      formatted: newTime.formatted,
+    })
     audioElm.current.currentTime = time
   }, [])
 

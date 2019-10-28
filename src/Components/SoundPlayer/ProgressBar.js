@@ -49,7 +49,7 @@ function ProgressBar({
     [trackDuration],
   )
   const handleClick = useCallback(() => {
-    updateTrackTime(durationInPoint.raw)
+    updateTrackTime(durationInPoint)
   }, [durationInPoint, updateTrackTime])
 
   useEffect(() => {

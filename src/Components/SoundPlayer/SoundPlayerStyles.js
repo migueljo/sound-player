@@ -1,7 +1,8 @@
 import styled, { keyframes, css } from 'styled-components'
+import * as colors from 'Utils/colors'
 
 export const Container = styled.div`
-  box-shadow: 0 30px 80px #656565;
+  box-shadow: 0 30px 80px ${colors.doveGray};
   width: 100%;
   height: 100px;
   position: relative;
@@ -14,7 +15,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   z-index: 1;
   position: relative;
-  background-color: white;
+  background-color: ${colors.white};
   border-radius: 4px;
 `
 
@@ -22,13 +23,15 @@ export const Cover = styled.div`
   position: absolute;
   left: 30px;
   z-index: 1;
-  background-color: #003f63;
+  background-color: ${colors.astronautBlue};
   top: -40px;
   width: 120px;
   height: 120px;
   border-radius: 50%;
   border: ${props =>
-    props.playing ? '4px solid white' : '10px solid white'};
+    props.playing
+      ? `4px solid ${colors.white}`
+      : `10px solid ${colors.white}`};
   transform: ${props =>
     props.playing ? 'translateY(-20px)' : 'translateY(0)'};
   transition: transform 400ms, border 400ms;
@@ -41,8 +44,8 @@ export const Cover = styled.div`
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    background-color: lightgray;
-    border: 2px solid white;
+    background-color: ${colors.doveGray};
+    border: 2px solid ${colors.white};
     border-radius: 50%;
   }
 `
@@ -84,7 +87,7 @@ export const Loader = styled.div`
   left: 0;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: ${colors.white};
   font-weight: 100;
   font-size: 12px;
 `
@@ -101,20 +104,21 @@ export const Button = styled.button`
   transition: background-color 300ms;
   cursor: pointer;
   border-radius: 4px;
+  background-color: ${colors.white};
 
   &:last-child {
     margin-right: 0;
   }
 
   & svg {
-    fill: #003f63;
+    fill: ${colors.astronautBlue};
   }
 
   &:hover {
-    background-color: #04a1fb;
+    background-color: ${colors.azureRadiance};
 
     & svg {
-      fill: white;
+      fill: ${colors.white};
     }
   }
 `
@@ -124,7 +128,7 @@ export const Info = styled.div`
   width: calc(100% - 20px);
   top: 0;
   left: 10px;
-  background-color: #003f63;
+  background-color: ${colors.astronautBlue};
   transform: ${props =>
     props.show ? 'translateY(-95px)' : 'translateY(0)'};
   border-radius: 4px 4px 0 0;
@@ -134,13 +138,13 @@ export const Info = styled.div`
 `
 
 export const Author = styled.p`
-  color: #04a1fb;
+  color: ${colors.azureRadiance};
   font-weight: bold;
   margin: 0;
 `
 
 export const Name = styled.p`
-  color: #acaebd;
+  color: ${colors.spunPearl};
   margin: 2px 0 13px;
   font-size: 13px;
 `
@@ -152,7 +156,7 @@ export const DurationInfo = styled.div`
 
 export const Duration = styled.p`
   font-size: 11px;
-  color: #04a1fb;
+  color: ${colors.azureRadiance};
   margin: 0;
 `
 
@@ -166,8 +170,8 @@ export const ProgressBarDurationInPoint = styled.p`
   left: 0;
   transform: ${props => `translateX(calc(${props.point}px - 18px))`};
   font-size: 12px;
-  background-color: #212121;
-  color: white;
+  background-color: ${colors.mineShaft};
+  color: ${colors.white};
   border-radius: 4px;
   padding: 5px;
   display: ${props => (props.show ? 'block' : 'none')};
@@ -176,7 +180,7 @@ export const ProgressBarDurationInPoint = styled.p`
 export const ProgressBar = styled.div`
   border-radius: 4px;
   height: 4px;
-  background-color: #acaebd;
+  background-color: ${colors.spunPearl};
   position: relative;
   outline: 0;
   width: 100%;
@@ -191,8 +195,8 @@ export const ProgressBar = styled.div`
     left: 0;
     width: ${props => `${props.progress}%`};
     height: 100%;
-    background-color: #04a1fb;
+    background-color: ${colors.azureRadiance};
     border-radius: 4px;
-    transition: width 300ms; // TODO: use transform instead of width to move the bar
+    transition: width 300ms;
   }
 `
